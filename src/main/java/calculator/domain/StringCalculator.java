@@ -5,6 +5,11 @@ public class StringCalculator {
         if (expression == null || expression.isEmpty()) {
             return 0;
         }
-        return 0;
+
+        ExpressionSplitter expressionSplitter = new ExpressionSplitter();
+        String[] tokens = expressionSplitter.split(expression);
+        Numbers numbers = Numbers.from(tokens);
+
+        return numbers.sum();
     }
 }
