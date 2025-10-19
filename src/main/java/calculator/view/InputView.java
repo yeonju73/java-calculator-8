@@ -7,6 +7,6 @@ public class InputView {
 
     public static String readExpression() {
         System.out.println(INPUT_PROMPT_MESSAGE);
-        return Console.readLine().trim();
+        return Console.readLine();
     }
 }
