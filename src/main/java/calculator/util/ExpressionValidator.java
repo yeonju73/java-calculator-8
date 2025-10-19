@@ -10,6 +10,7 @@ public class ExpressionValidator {
     public static void validate(String expression) {
         if (isCustomExpression(expression)) {
             validateCustomExpression(expression);
+            return;
         }
         validateDefaultExpression(expression);
     }

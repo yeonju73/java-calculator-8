@@ -1,6 +1,5 @@
 package calculator.util;
 
-import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,9 +14,7 @@ public class ExpressionSplitter {
         if (matcher.matches()) {
             String customDelimiter = matcher.group(1);
             String numbers = matcher.group(2);
-            String[] strings = numbers.split(customDelimiter);
-            System.out.println(Arrays.toString(strings));
-            return strings;
+            return numbers.split(customDelimiter);
         }
 
         return expression.split(DEFAULT_DELIMITERS);
