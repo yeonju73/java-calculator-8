@@ -1,5 +1,6 @@
 package calculator.util;
 
+import calculator.exception.ErrorMessage;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -30,13 +31,13 @@ public class ExpressionValidator {
         String validCustomFormat = "^-?[0-9]+(" + escapedDelimiter + "-?[0-9]+)*$";
 
         if (!Pattern.matches(validCustomFormat, numbers)) {
-            throw new IllegalArgumentException("커스텀 구분자로 숫자를 올바르게 구분해야 합니다.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_CUSTOM_DELIMITER.getMessage());
         }
     }
 
     private static void validateDefaultExpression(String expression) {
         if (!DEFAULT_PATTERN.matcher(expression).matches()) {
-            throw new IllegalArgumentException("유효하지 않은 계산식 형식입니다.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_DEFAULT_EXPRESSION.getMessage());
         }
     }
 }

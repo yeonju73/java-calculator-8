@@ -7,7 +7,7 @@ public class ExpressionSplitter {
     private static final String DEFAULT_DELIMITERS = "[,:]";
     private static final Pattern CUSTOM_DELIMITER_PATTERN = Pattern.compile("//(.)\\\\n(.*)");
 
-    public String[] split(String expression) {
+    public static String[] split(String expression) {
         // 커스텀 구분자 패턴에 해당하는지 검사
         Matcher matcher = CUSTOM_DELIMITER_PATTERN.matcher(expression);
 

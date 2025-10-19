@@ -1,20 +1,26 @@
 package calculator.domain;
 
+import calculator.exception.ErrorMessage;
 import calculator.util.ExpressionSplitter;
 import calculator.util.ExpressionValidator;
 
 public class StringCalculator {
-    public int calculate(String expression) {
-        if (expression == null || expression.isEmpty()) {
+    public static int calculate(String expression) {
+        handleNullInput(expression);
+        if (expression.isEmpty()) {
             return 0;
         }
 
         ExpressionValidator.validate(expression);
-
-        ExpressionSplitter expressionSplitter = new ExpressionSplitter();
-        String[] tokens = expressionSplitter.split(expression);
+        String[] tokens = ExpressionSplitter.split(expression);
 
         Numbers numbers = Numbers.from(tokens);
         return numbers.sum();
+    }
+
+    private static void handleNullInput(String expression) {
+        if (expression == null) {
+            throw new IllegalArgumentException(ErrorMessage.NULL_INPUT.getMessage());
+        }
     }
 }

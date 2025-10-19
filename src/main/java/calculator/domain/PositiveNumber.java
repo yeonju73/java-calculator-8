@@ -1,5 +1,7 @@
 package calculator.domain;
 
+import calculator.exception.ErrorMessage;
+
 public class PositiveNumber {
     private final int value;
 
@@ -14,7 +16,7 @@ public class PositiveNumber {
 
     private static void checkPositiveNumber(int value) {
         if (value <= 0) {
-            throw new IllegalArgumentException("음수는 허용되지 않습니다.");
+            throw new IllegalArgumentException(ErrorMessage.NEGATIVE_NUMBER.getMessage());
         }
     }
 
